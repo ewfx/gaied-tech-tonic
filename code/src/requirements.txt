@@ -1,0 +1,12 @@
+spacy
+flair
+transformers
+agno
+torch
+datasets
+protobuf
+sentencepiece
+numpy
+pandas
+huggingface_hub[cli]
+# git+https://github.com/facebookresearch/flashlight-text.git
