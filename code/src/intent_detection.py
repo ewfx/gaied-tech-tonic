@@ -1,7 +1,7 @@
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
 import os
 
-os.environ["HF_TOKEN"] = "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"
+os.environ["HF_TOKEN"] = ""
 
 # Load Mistral Model from Hugging Face
 # model_name = "mistralai/Mistral-7B-Instruct-v0.1"
