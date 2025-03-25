@@ -1,0 +1,62 @@
+{
+  "primary_fields": [
+    {
+      "name": "Deal Name",
+      "description": "The name of the deal, transaction, or agreement. Typically represents the title of the financial arrangement.",
+      "acronyms": ["Transaction Name", "Agreement Name", "Deal Title"],
+      "special_instructions": "Look for capitalized words or phrases, often preceded by terms like 'Deal', Deal Name', 'Transaction', or 'Agreement'."
+    },
+    {
+      "name": "Requested Amount",
+      "description": "The amount of money requested in the transaction, such as a loan or advance.",
+      "acronyms": ["Loan Amount", "Advance Amount", "Requested Sum"],
+      "special_instructions": "Look for monetary values (e.g., USD, EUR) preceded by terms like 'Requested', 'Loan', or 'Advance'."
+    },
+    {
+      "name": "Requested Currency",
+      "description": "The currency in which the requested amount is denominated.",
+      "acronyms": ["Currency Requested", "Loan Currency", "Advance Currency"],
+      "special_instructions": "Look for currency codes (e.g., USD, EUR, GBP) or names (e.g., US Dollars, Euros) near the requested amount."
+    },
+    {
+      "name": "Lender Currency",
+      "description": "The currency in which the lender is providing the funds.",
+      "acronyms": ["Currency Provided", "Lender's Currency"],
+      "special_instructions": "Look for currency codes or names near phrases like 'Lender', 'Provided Currency', or 'Funding Currency'."
+    },
+    {
+      "name": "Lender Amount",
+      "description": "The amount of money provided by the lender in the transaction.",
+      "acronyms": [
+        "Provided Amount",
+        "Lender's Contribution",
+        "Funding Amount"
+      ],
+      "special_instructions": "Look for monetary values preceded by terms like 'Lender', 'Provided', or 'Funding'."
+    },
+    {
+      "name": "Effective Date",
+      "description": "The date when the transaction or agreement becomes effective.",
+      "acronyms": ["Start Date", "Commencement Date", "Activation Date"],
+      "special_instructions": "Look for date formats (e.g., DD-MM-YYYY, Month DD, YYYY) near terms like 'Effective', 'Start', or 'Commencement'."
+    },
+    {
+      "name": "Agent Bank",
+      "description": "The name of the bank acting as the agent or managing bank in the transaction.",
+      "acronyms": ["Managing Bank", "Agent Institution", "Lead Bank"],
+      "special_instructions": "Look for organization names near terms like 'Agent Bank', 'Managing Bank', or 'Lead Institution'."
+    },
+    {
+      "name": "CUSIP",
+      "description": "The unique identifier for financial instruments in the U.S., assigned by the Committee on Uniform Securities Identification Procedures.",
+      "acronyms": ["CUSIP Number", "Security Identifier"],
+      "special_instructions": "Look for a 9-character alphanumeric code near terms like 'CUSIP' or 'Security Identifier'."
+    },
+    {
+      "name": "ISIN",
+      "description": "The International Securities Identification Number, a unique identifier for financial instruments globally.",
+      "acronyms": ["ISIN Code", "International Security Identifier"],
+      "special_instructions": "Look for a 12-character alphanumeric code near terms like 'ISIN' or 'International Security Identifier'."
+    }
+  ]
+}

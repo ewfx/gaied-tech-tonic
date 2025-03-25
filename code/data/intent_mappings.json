@@ -1,0 +1,18 @@
+{
+  "Advance + Current is empty": "Money Movement - Outbound",
+  "Advance + Currency = USD": "Money Movement - Outbound > Standard",
+  "Advance + Currency = Non USD": "Money Movement - Outbound > Foreign Currency/FX",
+  "Payment > Principal": "Money Movement - Inbound > Principal",
+  "Payment > Interest": "Money Movement - Inbound > Interest",
+  "Payment > Fee": "Fee Payment",
+  "Payment > Principal & Interest": "Money Movement - Inbound > Principal + Interest",
+  "Reprice": "Rate > Rate Set",
+  "Letter of Credit > Decrease": "Letter of Credit > Decrease",
+  "Letter of Credit > Increase": "Letter of Credit > Increase",
+  "Letter of Credit > Issuance": "Letter of Credit > Issuance",
+  "Letter of Credit > Extension": "Letter of Credit > Extension",
+  "Letter of Credit > Termination": "Letter of Credit > Termination",
+  "Letter of Credit > Fee Payment": "Fee Payment",
+  "Adjustment": "Rate > Rate Adjustment/Correction",
+  "Commitment Change": "Commitment Changes"
+}
