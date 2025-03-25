@@ -1,3 +1,3 @@
-## Delete this file
-
-Instead place your source files here
+venv\Scripts\activate
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
