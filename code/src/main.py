@@ -1,8 +1,6 @@
 import json
-from preprocess import preprocess_email, extract_named_entities
-from intent_detection_copy import detect_intent
-from data_extraction import extract_structured_data
-from agno.utils.pprint import pprint_run_response
+from preprocess import preprocess_email
+from intent_detection import detect_intent
 from agno.agent import Agent
 from agno.models.huggingface import HuggingFace
 from pprint import pprint
@@ -27,13 +25,6 @@ def process_email(email_text):
 
     # Intent Detection
     detected_intent_fields = detect_intent(cleaned_text)
-
-    # Structured Data Extraction with cleaned email text
-    # print("\n🔹 Fields Detected with cleaned email text", detected_intent_fields)
-    # extracted_data_cleaned = extract_structured_data(cleaned_text, detected_intent_fields)
-    # extracted_data_cleaned_json = extracted_data_cleaned.content  # Extract JSON content
-    # pprint(extracted_data_cleaned_json)
-
     return {
         "Final Data": detected_intent_fields,
     }
