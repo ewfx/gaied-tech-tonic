@@ -1,3 +1,4 @@
+import json
 from preprocess import preprocess_email, extract_named_entities
 from intent_detection_copy import detect_intent
 from data_extraction import extract_structured_data
@@ -40,9 +41,14 @@ def process_email(email_text):
 def main():
     script_dir = Path(__file__).parent
     input_path = script_dir / "input"   
+    output_path = script_dir / "output"
     if not input_path.exists():
         print(f"Input folder does not exist: {input_path}")
         return
+    
+    if not output_path.exists():
+        output_path.mkdir()  # Create the output folder if it doesn't exist
+
     print("\n🔹 Email Processing Pipeline")
     # Check if there are any .eml files in the input folder
     email_files = list(input_path.glob("*.eml"))
@@ -56,6 +62,12 @@ def main():
         result = process_email(email_data)
         print("\n🔹 Full Processing Result:")
         pprint(result)
+        # Write the result to a file in the output folder
+        output_file = output_path / f"{email_file.stem}_result.json"  # Save as JSON file
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=4)
+
+        print(f"Result written to: {output_file}")
 
 if __name__ == "__main__":
     main()
