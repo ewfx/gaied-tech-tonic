@@ -1,0 +1,27 @@
+{
+  "intents": [
+    "Money movement inbound",
+    "Money movement outbound",
+    "Loan repayment request",
+    "Interest rate inquiry",
+    "Account balance confirmation",
+    "Account closure",
+    "General inquiry",
+    "Advance and Current is empty",
+    "Advance and Currency is USD", 
+    "Advance and Currency is Non USD",
+    "Payment and Principal",
+    "Payment and Interest",
+    "Payment and Fee",
+    "Payment and Principal & Interest",
+    "Reprice",
+    "Letter of Credit and Decrease",
+    "Letter of Credit and Increase",
+    "Letter of Credit and Issuance",
+    "Letter of Credit and Extension",
+    "Letter of Credit and Termination",
+    "Letter of Credit and Fee Payment",
+    "Adjustment",
+    "Commitment Change"
+  ]
+}

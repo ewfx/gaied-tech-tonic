@@ -1,0 +1,11 @@
+{
+    "business_request": "detected_intent",
+    "request_type": "request_type",
+    "sub_request_type": "sub_request_type",
+    "fields": [
+        {
+            "field_name": "field_name",
+            "field_value": "field_value"
+        }
+    ]
+}
