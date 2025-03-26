@@ -1,0 +1,6 @@
+{
+    "Final Data": {
+        "intent": " {\n\"request\\_type\": \"Money Movement - Outbound\",\n\"sub\\_request\\_type\": \"Standard\"\n}",
+        "extracted_fields": " {\n    \"Effective Date\": \"15 Mar 2025\",\n    \"Loan Alias\": \"ABCCORP00124\",\n    \"CUSIP\": \"67890xyz1\",\n    \"ISIN\": \"us67890XYZ12\",\n    \"Facility CUSIP\": \"67890xyza\",\n    \"Facility ISIN\": \"us67890xyza3\",\n    \"Borrower\": \"US1L987655\",\n    \"Lender\": \"us1l432110\",\n    \"Repricing Date\": \"15 Apr 2025\",\n    \"Spread\": \"1.234567\",\n    \"Rate Setting\": \"5.111110\",\n    \"Project Interest\": \"$529,683.20\",\n    \"Share\": \"$664,062.50\",\n    \"Loan Reprice\": \"$5,976,562.50\",\n    \"Account Number\": \"[XXXXXXXXXXXXXXXX1234]\",\n    \"ABA Number\": \"021000021\"\n}\n\nNote: The above JSON format is not the ideal format; you should customize it based on the business needs and map the extracted fields with the field names provided in the question."
+    }
+}

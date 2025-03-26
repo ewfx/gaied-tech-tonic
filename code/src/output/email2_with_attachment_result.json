@@ -1,0 +1,6 @@
+{
+    "Final Data": {
+        "intent": " This email can be classified under \"Money Movement - Outbound\" intent category. Within this category, the sub request type can be \"Standard\" as the email requests an advance in USD currency. Here is the corresponding JSON format:\n```json\n{\n    \"request_type\": \"Money Movement - Outbound\",\n    \"sub_request_type\": \"Standard\"\n}\n```",
+        "extracted_fields": " [\n{\n\"name\": \"Deal Name\",\n\"value\": \"XYZ Corporation\"\n},\n{\n\"name\": \"Requested Amount\",\n\"value\": \"$100,000\"\n}\n]"
+    }
+}
