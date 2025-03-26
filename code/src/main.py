@@ -21,11 +21,9 @@ def process_email(email_text):
     """Run the full pipeline: NLP -> Intent Detection -> Data Extraction."""
     # Preprocessing
     cleaned_text = preprocess_email(email_text)
-    print("\n🔹 Preprocessed Text:\n", cleaned_text)
 
     # Intent Detection
     detected_intent_fields = detect_intent(cleaned_text)
-    print("\n🔹 Detected Intent and fields:", detected_intent_fields)
 
     # Structured Data Extraction with cleaned email text
     # print("\n🔹 Fields Detected with cleaned email text", detected_intent_fields)

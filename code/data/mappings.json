@@ -1,0 +1,92 @@
+[
+    {
+        "ask": "Email requests an advance without specifying the currency.",
+        "requestType": "Money Movement - Outbound",
+        "subRequestType": ""
+    },
+    {
+        "ask": "Email requests an advance in USD currency.",
+        "requestType": "Money Movement - Outbound",
+        "subRequestType": "Standard"
+    },
+    {
+        "ask": "Email requests an advance in a non-USD currency.",
+        "requestType": "Money Movement - Outbound",
+        "subRequestType": "Foreign Currency/FX"
+    },
+    {
+        "ask": "Email instructs payment of principal amount.",
+        "requestType": "Money Movement - Inbound",
+        "subRequestType": "Principal"
+    },
+    {
+        "ask": "Email instructs payment of interest amount.",
+        "requestType": "Money Movement - Inbound",
+        "subRequestType": "Interest"
+    },
+    {
+        "ask": "Email instructs payment of fees.",
+        "requestType": "Fee Payment",
+        "subRequestType": ""
+    },
+    {
+        "ask": "Email instructs payment of both principal and interest.",
+        "requestType": "Money Movement - Inbound",
+        "subRequestType": "Principal + Interest"
+    },
+    {
+        "ask": "Email requests a rate repricing.",
+        "requestType": "Rate",
+        "subRequestType": "Rate Set"
+    },
+    {
+        "ask": "Email requests a decrease in a letter of credit.",
+        "requestType": "Letter of Credit",
+        "subRequestType": "Decrease"
+    },
+    {
+        "ask": "Email requests an increase in a letter of credit.",
+        "requestType": "Letter of Credit",
+        "subRequestType": "Increase"
+    },
+    {
+        "ask": "Email requests issuance of a letter of credit.",
+        "requestType": "Letter of Credit",
+        "subRequestType": "Issuance"
+    },
+    {
+        "ask": "Email requests an extension for a letter of credit.",
+        "requestType": "Letter of Credit",
+        "subRequestType": "Extension"
+    },
+    {
+        "ask": "Email requests termination of a letter of credit.",
+        "requestType": "Letter of Credit",
+        "subRequestType": "Termination"
+    },
+    {
+        "ask": "Email requests payment of fees related to a letter of credit.",
+        "requestType": "Fee Payment",
+        "subRequestType": ""
+    },
+    {
+        "ask": "Email requests an adjustment or correction in the interest rate.",
+        "requestType": "Rate",
+        "subRequestType": "Rate Adjustment/Correction"
+    },
+    {
+        "ask": "Email requests a change in commitment terms.",
+        "requestType": "Commitment Changes",
+        "subRequestType": ""
+    },
+    {
+        "ask": "Email requests a correction or adjustment to the interest rate or loan terms due to an error or renegotiation.",
+        "requestType": "Adjustment ",
+        "subRequestType": ""
+    },
+    {
+        "ask": "Email requests an increase or decrease in the lender's committed loan amount as per the agreed terms.",
+        "requestType": "Commitment Change",
+        "subRequestType": ""
+    }
+]

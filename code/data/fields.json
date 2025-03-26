@@ -1,5 +1,4 @@
-{
-  "primary_fields": [
+[
     {
       "name": "Deal Name",
       "description": "The name of the deal, transaction, or agreement. Typically represents the title of the financial arrangement.",
@@ -59,4 +58,3 @@
       "special_instructions": "Look for a 12-character alphanumeric code near terms like 'ISIN' or 'International Security Identifier'."
     }
   ]
-}

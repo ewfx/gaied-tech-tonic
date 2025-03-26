@@ -3,19 +3,15 @@ import json
 import os
 from agno.agent import Agent
 from agno.models.huggingface import HuggingFace
+from pprint import pprint
 
 current_dir = os.path.dirname(__file__)
-intents_path = os.path.join(current_dir, "../data/intents.json")
-intents_mappings = os.path.join(current_dir, "../data/intent_mappings.json")
+intents_mappings = os.path.join(current_dir, "../data/mappings.json")
+expected_output = os.path.join(current_dir, "../data/expected_output.json")
 fields_to_be_extracted = os.path.join(current_dir, "../data/fields.json")
-
-print("\n🔹 intents_path:", intents_path)
 
 # Load Mistral Model from Hugging Face
 model_name = "mistralai/Mistral-7B-Instruct-v0.1"
-# model_name = "facebook/bart-large-mnli"
-# tokenizer = AutoTokenizer.from_pretrained(model_name)
-# intent_classifier = pipeline("zero-shot-classification", model=model_name)
 
 agent = Agent(
     model=HuggingFace(
@@ -25,12 +21,6 @@ agent = Agent(
     ),
     markdown=True
 )
-
-# Define candidate intents
-with open(intents_path, "r") as f:
-    intents_data = json.load(f)
-intents = intents_data["intents"]
-print("\n🔹 Intents:", intents)
 
 # Load intent mappings from the JSON file
 with open(intents_mappings, "r") as f:
@@ -43,44 +33,47 @@ with open(fields_to_be_extracted, "r") as f:
 
 def detect_intent(email_text):
     print("\nDetecting intent...")
-    """Classify the email into a predefined banking intent."""
-     # Construct the refined prompt
+    #Classify the email into a predefined banking intent.
     prompt = f"""
-    You are a banking assistant. Your task is to classify the following email into one of these predefined intent categories:
+    You are a banking assistant. Your task is to classify the following email into one of these predefined intent categories using "ask" in {json.dumps(intent_to_business_mapping, indent=2)}. Using ask, extract requestType and subRequestType fields.
+    
+    Email Content:
+    "{email_text}"
+    
+    """
+    intent_result = agent.run(prompt)
+    pprint(f"intent_result: {intent_result}")
 
-    {json.dumps(intents, indent=2)}
+    prompt = f"""
+    Focus on extracting the fields using {json.dumps(fields_list, indent=2)}, even if they are expressed in different words or formats:
+    Each field includes its name, description, acronyms, and special instructions to help you identify it in the email content.
+
+    Please note that below fields are primary fields to consider. So, if you find some other fields required for business needs, extract them too. Extract the fields in json format.
 
     Email Content:
     "{email_text}"
-
-    Focus on extracting the following fields, even if they are expressed in different words or formats:
-    Below are the master fields list that you need to extract from the email. Each field includes its name, description, acronyms, and special instructions to help you identify it in the email content:
-    Please note that below fields are primary fields to consider. So, if you find some other critical fields found that are critical for business needs, please extract them too.
-    Master Fields List:
-    {json.dumps(fields_list, indent=2)}
-    
-
-    Respond **only** with the intent label and list of identified fields with its values..
     """
-    intent_result = agent.run(prompt)
-    detected_intent = intent_result.content.strip().strip('"')
+    extracted_fields = agent.run(prompt)
+    pprint(f"extracted_fields: {extracted_fields}")
+    return intent_result
+    # detected_intent = intent_result.content.strip().strip('"')
 
-    print(f"Detected Intent: {detected_intent}")
+    # print(f"Detected Intent: {detected_intent}")
 
-    # Map the detected intent to a business request type
-    business_request = intent_to_business_mapping.get(detected_intent, "Unknown Request Type")
+    # # Map the detected intent to a business request type
+    # business_request = intent_to_business_mapping.get(detected_intent, "Unknown Request Type")
 
-    # Extract Request Type and Sub Request Type
-    if ">" in business_request:
-        request_type, sub_request_type = map(str.strip, business_request.split(">", 1))
-    else:
-        request_type, sub_request_type = business_request, None
+    # # Extract Request Type and Sub Request Type
+    # if ">" in business_request:
+    #     request_type, sub_request_type = map(str.strip, business_request.split(">", 1))
+    # else:
+    #     request_type, sub_request_type = business_request, None
 
-    print(f"Request Type: {request_type}")
-    print(f"Sub Request Type: {sub_request_type}")
+    # print(f"Request Type: {request_type}")
+    # print(f"Sub Request Type: {sub_request_type}")
 
-    return {
-        "business_request": detected_intent,
-        "request_type": request_type,
-        "sub_request_type": sub_request_type,
-    }
+    # return {
+    #     "business_request": detected_intent,
+    #     "request_type": request_type,
+    #     "sub_request_type": sub_request_type,
+    # }
