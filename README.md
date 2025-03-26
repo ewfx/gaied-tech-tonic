@@ -115,4 +115,4 @@ LLM model Mistral-7B needs needs high configuration, we had to explore and spend
 
 ## 👥 Team
 - **Your Name** - navakanth09-OL | navakanth09
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Pavan Kumar Neeli** - [https://github.com/pavannpg | [[LinkedIn](#)](https://www.linkedin.com/in/pavankumarneeli/)
