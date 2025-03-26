@@ -114,5 +114,5 @@ LLM model Mistral-7B needs needs high configuration, we had to explore and spend
 - 🔹 Backend: Python / FastAPI / Mistral(LLM)
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
+- **Your Name** - navakanth09-OL | navakanth09
 - **Teammate 2** - [GitHub](#) | [LinkedIn](#)
