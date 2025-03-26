@@ -35,14 +35,21 @@ def detect_intent(email_text):
     print("\nDetecting intent...")
     #Classify the email into a predefined banking intent.
     prompt = f"""
-    You are a banking assistant. Your task is to classify the following email into one of these predefined intent categories using "ask" in {json.dumps(intent_to_business_mapping, indent=2)}. Using ask, extract requestType and subRequestType fields.
+    You are a banking assistant. Your task is to classify the following email into one of the following predefined intent categories. 
+    Each intent category will have ask field which should corelate with the email content. If you find any relavent info as per the ask, then extract the coresponding request type and sub request type from the same Intent Category list below.
     
     Email Content:
     "{email_text}"
+
+    Intent Categories:
+    {json.dumps(intent_to_business_mapping, indent=2)}
     
+    Please give **only** the request type and sub request type in the below json format if found.
+    Example JSON format: {{"request_type": "testrequesttype", "sub_request_type": "test"}}
+
     """
     intent_result = agent.run(prompt)
-    pprint(f"intent_result: {intent_result}")
+    pprint(f"intent_result: {intent_result.content}")
 
     prompt = f"""
     Focus on extracting the fields using {json.dumps(fields_list, indent=2)}, even if they are expressed in different words or formats:
@@ -52,10 +59,17 @@ def detect_intent(email_text):
 
     Email Content:
     "{email_text}"
+
+    Please give **only** list of extracted fields with their field name and value in the below json format.
+    Example JSON format: {{"Deal Name": "XYZ Corporation", "Requested Amount": "$100,000"}}
+
     """
     extracted_fields = agent.run(prompt)
-    pprint(f"extracted_fields: {extracted_fields}")
-    return intent_result
+    pprint(f"extracted_fields: {extracted_fields.content}")
+    return {
+        "intent": intent_result.content,
+        "extracted_fields": extracted_fields.content,
+    }
     # detected_intent = intent_result.content.strip().strip('"')
 
     # print(f"Detected Intent: {detected_intent}")

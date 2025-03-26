@@ -44,18 +44,7 @@ def process_attachments(email) -> str:
     # Clear the output folder before processing new attachments
     script_dir = Path(__file__).parent  # Get the directory of the current script
     output_folder = script_dir.parent / "output"
-    if os.path.exists(output_folder):
-        for file_name in os.listdir(output_folder):
-            file_path = os.path.join(output_folder, file_name)
-            try:
-                if os.path.isfile(file_path):
-                    os.remove(file_path)  # Remove the file
-                    print(f"Deleted existing file: {file_path}")
-            except Exception as e:
-                print(f"Error deleting file {file_path}: {e}")
-    else:
-        os.makedirs(output_folder)  # Create the folder if it doesn't exist
-
+   
     attachments_content = ""
     for attachment in email.attachments:
         attachment_name = attachment["filename"]
