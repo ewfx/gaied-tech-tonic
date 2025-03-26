@@ -44,8 +44,14 @@ def main():
         print(f"Input folder does not exist: {input_path}")
         return
     print("\n🔹 Email Processing Pipeline")
+    # Check if there are any .eml files in the input folder
+    email_files = list(input_path.glob("*.eml"))
+    if not email_files:
+        print(f"No email files found in the provided path: {input_path}")
+        return
+
     # Iterate through all .eml files in the input folder
-    for email_file in input_path.glob("*.eml"):
+    for email_file in email_files:
         email_data = extract_email(email_file)
         result = process_email(email_data)
         print("\n🔹 Full Processing Result:")
