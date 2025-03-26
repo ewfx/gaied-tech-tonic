@@ -1,0 +1,16 @@
+revised_instructions = [
+    "Analyze the email content and attachments to identify all asks (requests) made by the sender.",
+    "Classify each ask into predefined 'Request Type' and 'Sub Request Type' categories based on the sender's intent. If no exact match is found, infer the closest possible category based on the context.",
+    "Identify and differentiate between primary asks (main intent of the email) and secondary asks (additional requests).",
+    "Extract all relevant fields associated with each ask, such as 'Request Type', 'Sub Request Type'(if applicable/available) along with these, extract all other useful fields found in the email content or attachments.",
+    "Try to map found request types and sub request types with the standard request types and sub request types that are available in commercial banking lending services outside.",
+    "Ensure that numerical fields like 'Amount' and 'Effective Date' are accurately extracted and formatted.",
+    "Detect and flag duplicate emails within the email thread to avoid redundant processing and reduce operational risks.",
+    "Generate a structured JSON file named 'final_output_<CURRENT_TIMESTAMP>.json' in the output folder. This file should contain all classified asks, their associated fields, and a clear distinction between primary and secondary asks.",
+    "Generate a separate JSON file named 'metrics_<CURRENT_TIMESTAMP>.json' in the output folder. This file should include useful metrics such as the number of emails processed, the number of asks identified, the number of duplicates detected, extraction accuracy, confidence scores, and any errors encountered during processing. Provide percentage values for metrics and include a description of their importance and calculation methodology.",
+    "Ensure all generated JSON files are properly formatted and beautified for readability.",
+    "Handle edge cases such as incomplete data, ambiguous requests, and large email threads. Ensure robustness and accuracy in processing.",
+    "Provide a summary of the email processing, including the number of emails processed, the number of asks identified, and any errors encountered during processing.",
+    "Maintain a high level of accuracy and efficiency in processing, minimizing manual intervention and turnaround time.",
+    "Ensure the solution is adaptable to evolving commercial banking standards and can incorporate new 'Request Type' and 'Sub Request Type' categories as needed.",
+]
