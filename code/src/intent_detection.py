@@ -43,8 +43,8 @@ def detect_intent(email_text):
     Intent Categories:
     {json.dumps(intent_to_business_mapping, indent=2)}
     
-    Please give **only** the request type and sub request type in the below json format if found.
-    Example JSON format: {{"request_type": "testrequesttype", "sub_request_type": "test"}}
+    Please give **only** one set of request type and sub request type in the below json format if found. Don't deviate from the structure of the json format and don't add any illusanation statement.
+    Example JSON format: {{"request_type": "Test Request Type", "sub_request_type": "Test Sub Request Type"}}
 
     """
     intent_result = agent.run(prompt)
@@ -54,12 +54,12 @@ def detect_intent(email_text):
     Focus on extracting the fields using {json.dumps(fields_list, indent=2)}, even if they are expressed in different words or formats:
     Each field includes its name, description, acronyms, and special instructions to help you identify it in the email content.
 
-    Please note that below fields are primary fields to consider. So, if you find some other fields required for business needs, extract them too. Extract the fields in json format.
+    Please note that fields mentioned above are primary fields to consider. So, if you find some other fields required for business needs, extract them too. Extract the fields in json format.
 
     Email Content:
     "{email_text}"
 
-    Please give **only** list of extracted fields with their field name and value in the below json format.
+    Provide **only** the list of extracted fields in the exact JSON format below. Do not include any additional text, explanations, or statements. Only return the JSON object. What i mean is that don't include statements such as Here's the extracted fields or anything similar.
     Example JSON format: {{"Deal Name": "XYZ Corporation", "Requested Amount": "$100,000"}}
 
     """
