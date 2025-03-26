@@ -38,9 +38,8 @@ To address these challenges, this project implements a GenAI-powered Email Class
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
 📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
+🖼️ PPT:
+https://github.com/ewfx/gaied-tech-tonic/blob/main/artifacts/demo/Tech-Tonic-Gen%20AI.pptx
 
 ## 💡 Inspiration
 Likes doing hackathon where I can explore new technologies.
