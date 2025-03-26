@@ -5,6 +5,8 @@ from agno.utils.pprint import pprint_run_response
 from agno.agent import Agent
 from agno.models.huggingface import HuggingFace
 from pprint import pprint
+from pathlib import Path
+from email_processor.email_handler import extract_email
 
 print("\n🚀 Script Started...\n", flush=True)
 
@@ -35,46 +37,19 @@ def process_email(email_text):
         "Final Data": detected_intent_fields,
     }
 
-if __name__ == "__main__":
+def main():
+    script_dir = Path(__file__).parent
+    input_path = script_dir / "input"   
+    if not input_path.exists():
+        print(f"Input folder does not exist: {input_path}")
+        return
     print("\n🔹 Email Processing Pipeline")
-    sample_email = """
-BANK OF XYZ  
-Bank of XYZ, N.A.  
-To:                                                                                ABC BANK NATIONAL ASSOCIATION  
-Date:                                                                              8 - Nov - 2023  
-ATTN:                                                                              AGENT DEFAULT  
-Phone:                                                                             123-456-7890  
-Fax:                                                                               987-654-3210  
-Email:                                                                             QWE123@randommail.com  
-Re:                                                                                RANDOM ENTITY LP USD 999MM MAR22 / REVOLVER / ENTITY XYZ00099  
-Deal CUSIP:                                                                        A1B2C3D4E5F6  
-Deal ISIN:                                                                         USA1B2C3D4E5  
-Facility CUSIP:                                                                    G7H8I9J0K1L2  
-Facility ISIN:                                                                     USG7H8I9J0K1  
-Lender MEI:                                                                        USX1Y2Z3A4B5  
-Effective 10 - Nov - 2023, RANDOM ENTITY LP has elected to repay under the SOFR (US) Term option, a total of USD  
-99,999,999.99.  
-Previous Global Principal Balance: USD 199,999,999.99  
-New Global Principal Balance: USD 99,999,999.99  
-This loan was effective 20 - Jul - 2023 and is scheduled to reprice on 20 - Nov - 2023.  
-Your share of the USD 99,999,999.99 SOFR (US) Term option payment is USD 9,876,543.21  
-Previous Lender Share Principal Balance: USD 19,876,543.21  
-New Lender Share Principal Balance: USD 9,876,543.21  
-We will remit USD 9,876,543.21 on the effective date. Please note that (1) If the Borrower has not in fact made such  
-payment; or (ii) any payment you receive is in excess of what was paid by the Borrower or (iii) we notify you that the payment  
-was erroneously made, then pursuant to the provisions of the credit facility, you agree to return such payment.  
- 
-For: ABC BANK  
-To: ABC BANK, N.A.  
-ABA Number: 111111  
-Account No: XXXXXXXXXX5678  
-Reference: RANDOM ENTITY LP USD 999MM MAR22, SOFR (US) Term Principal Payment (ENTITY XYZ00099)  
- 
-Thanks & Regards,  
-John Doe  
-Telephone: +19999999999  
-Email ID: johndoe@randommail.com  
-    """
-    result = process_email(sample_email)
-    print("\n🔹 Full Processing Result:")
-    pprint(result)
+    # Iterate through all .eml files in the input folder
+    for email_file in input_path.glob("*.eml"):
+        email_data = extract_email(email_file)
+        result = process_email(email_data)
+        print("\n🔹 Full Processing Result:")
+        pprint(result)
+
+if __name__ == "__main__":
+    main()

@@ -17,3 +17,8 @@ python-dotenv
 huggingface_hub
 fastapi
 uvicorn
+python-docx
+PyMuPDF
+mail-parser
+pytesseract
+PyPDF2
